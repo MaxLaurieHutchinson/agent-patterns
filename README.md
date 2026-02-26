@@ -11,6 +11,10 @@ A practical reference library of agentic design patterns with Python implementat
 - `memory-hierarchy/` - Working, episodic, and semantic memory layers
 - `observer-pattern/` - Event bus and pub/sub coordination model
 - `tool-use-mcp/` - MCP-style tool registry + execution adapter
+- `router-delegation/` - Intent routing and specialist handoff
+- `reflection-verifier/` - Draft, verify, revise quality loop
+- `checkpoint-resume/` - Persisted workflow recovery and resume
+- `templates/` - Reusable docs scaffolds for new patterns
 
 ## Quick Decision Matrix
 
@@ -23,6 +27,9 @@ A practical reference library of agentic design patterns with Python implementat
 | **Memory Hierarchy** | Long-running agents with learning | Stateless, one-shot tasks | Medium | Personal assistants, knowledge agents |
 | **Observer Pattern** | Event-driven coordination, reactive systems | Simple linear workflows | Medium | Real-time monitoring, multi-agent systems |
 | **Tool Use (MCP)** | Integrating external tools/resources | No external dependencies | Medium | Tool-augmented agents |
+| **Router + Delegation** | Many task types need specialists | One generalist can handle all tasks | Medium | Multi-agent orchestration |
+| **Reflection + Verifier** | Correctness checks are important | Purely creative freeform output | Medium | Safer answer generation |
+| **Checkpoint + Resume** | Long jobs can be interrupted | Work is short and cheap to rerun | Medium | Fault-tolerant workflows |
 
 ## Pattern Summaries
 
@@ -89,6 +96,33 @@ Standardized way for LLMs to discover and use external tools following the Model
 - **Key benefit:** Standardized tool interface, dynamic tool discovery
 - **See:** [/tool-use-mcp/README.md](./tool-use-mcp/README.md)
 
+### 8. Router + Delegation
+**Route tasks to the best specialist**
+
+Classifies incoming tasks and dispatches them to specialist agents (coding, research, writing, etc.), with fallback routing for unknown intents.
+
+- **When to use:** Multi-specialist systems, modular agent teams
+- **Key benefit:** Better task-specialist alignment
+- **See:** [/router-delegation/README.md](./router-delegation/README.md)
+
+### 9. Reflection + Verifier
+**Draft, verify, revise**
+
+Generates an answer, runs an independent verification pass, and iterates with feedback until accepted or retry limits are reached.
+
+- **When to use:** High-correctness tasks, constrained outputs
+- **Key benefit:** Explicit quality control loop
+- **See:** [/reflection-verifier/README.md](./reflection-verifier/README.md)
+
+### 10. Checkpoint + Resume
+**Persist progress, recover safely**
+
+Saves workflow progress after each step and resumes from the last checkpoint after interruption or crash.
+
+- **When to use:** Long-running jobs, flaky runtime environments
+- **Key benefit:** Recovery without redoing completed work
+- **See:** [/checkpoint-resume/README.md](./checkpoint-resume/README.md)
+
 ## Choosing the Right Pattern
 
 ### For Simple Tasks
@@ -147,6 +181,13 @@ python3.11 -m unittest discover -s tests -v
 - Several patterns intentionally keep simple heuristics for readability (for example consensus detection and plan parsing).
 - Security-sensitive components are guarded where appropriate (for example filesystem tool paths are constrained to a configured base directory).
 
+## Dual Documentation
+
+Each pattern folder now supports two complementary docs:
+
+- `PATTERN.md` for plain-language explanation that humans can read quickly.
+- `AGENT_SPEC.md` for machine-oriented execution instructions (useful for OpenClaw-style agent runtimes).
+
 ## Contributing
 
 Add new patterns following the same structure:
@@ -154,3 +195,5 @@ Add new patterns following the same structure:
 2. `diagram.md` - Architecture diagram
 3. `implementation.py` - Core implementation
 4. `example.py` - Usage example
+5. `PATTERN.md` - Plain-language workflow and tradeoffs
+6. `AGENT_SPEC.md` - Machine-readable operational contract
