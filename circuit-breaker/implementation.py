@@ -159,16 +159,16 @@ class CircuitBreaker:
                         "Circuit HALF-OPEN: max test calls reached"
                     )
                 self.half_open_calls += 1
+
+            self.metrics.total_calls += 1
+            self.metrics.last_call_time = time.time()
         
         # Execute the call (outside lock to allow concurrency)
-        self.metrics.total_calls += 1
-        self.metrics.last_call_time = time.time()
-        
         try:
             result = func(*args, **kwargs)
             self.record_success()
             return result
-        except Exception as e:
+        except Exception:
             self.record_failure()
             raise
     

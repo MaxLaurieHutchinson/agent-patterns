@@ -5,8 +5,8 @@ The Multi-Agent Debate pattern uses multiple specialized agents that discuss a p
 ## Core Concept
 
 ```
-Problem → Agent A proposes → Agent B critiques → Agent C synthesizes
-                    ↓              ↓                ↓
+Problem -> Agent A proposes -> Agent B critiques -> Agent C synthesizes
+                    |              |                |
               Consensus / Best Answer / Refined Solution
 ```
 
@@ -40,30 +40,22 @@ Multiple agents with different roles/perspectives collaborate:
 4. **Robustness** - Less likely to miss important considerations
 5. **Explainability** - Clear reasoning process visible
 
-## Debate Structures
+## This Repository's Implementation
 
-### Round-Robin
-Each agent responds in turn, building on previous contributions.
+- Core implementation: `implementation.py`
+- Demo script: `example.py`
+- Role model: proposer, critic, expert, synthesizer, judge
+- Termination checks: consensus heuristic, max rounds, and cost limit
 
-### Adversarial
-Two agents argue opposing viewpoints.
+### Current Tradeoffs
 
-### Hierarchical
-Proposer → Critics → Synthesizer → Judge
-
-### Parallel
-Multiple agents generate independently, then compare.
+- Consensus detection uses a simple keyword-based heuristic.
+- Cost tracking is intentionally approximate for readability.
+- Synthesis and judging are single-pass calls rather than multi-criteria voting.
 
 ## Related Patterns
 
 - **Plan-and-Execute** - Debate can review/improve plans
-- **Observer Pattern** - Agents observe and react to debate events
+- **Observer Pattern** - Agents can coordinate through events
 - **Memory Hierarchy** - Store debate history for future reference
-- **ReAct Loop** - Individual agents can use ReAct within debate
-
-## Implementation Considerations
-
-1. **Termination** - When to stop debating (rounds, consensus, timeout)
-2. **Cost Management** - Debates can get expensive
-3. **Agent Roles** - Clear definitions prevent confusion
-4. **State Management** - Track debate context across rounds
+- **ReAct Loop** - Individual agents can use ReAct internally

@@ -5,7 +5,7 @@ The ReAct (Reasoning + Acting) pattern is a fundamental agent architecture where
 ## Core Concept
 
 ```
-Thought → Action → Observation → Thought → Action → ... → Answer
+Thought -> Action -> Observation -> Thought -> Action -> ... -> Answer
 ```
 
 The agent:
@@ -35,11 +35,18 @@ The agent:
 3. **Tool Integration** - Natural fit for tool-using agents
 4. **Self-Correction** - Agent can notice and fix its own mistakes
 
-## Variations
+## This Repository's Implementation
 
-- **Zero-shot ReAct** - No examples provided, LLM reasons from scratch
-- **Few-shot ReAct** - Examples of reasoning chains provided
-- **Reflexion** - Adds self-evaluation after each step
+- Core implementation: `implementation.py`
+- Demo script: `example.py`
+- State machine: LangGraph `think -> act -> observe` loop
+- Tool calls are parsed from model text in `Action: tool_name(param=value)` format
+
+### Current Tradeoffs
+
+- Action parsing is intentionally simple and format-sensitive.
+- Tool argument parsing supports basic key/value pairs and is not a full parser.
+- Best suited for educational/demo use unless hardened for adversarial inputs.
 
 ## Related Patterns
 

@@ -8,7 +8,6 @@ from dataclasses import dataclass, field
 from datetime import datetime
 from collections import defaultdict
 import uuid
-import fnmatch
 import asyncio
 from concurrent.futures import ThreadPoolExecutor
 
@@ -143,9 +142,34 @@ class EventBus:
     
     def _topic_matches(self, pattern: str, topic: str) -> bool:
         """Check if a topic matches a pattern."""
-        # Convert pattern to fnmatch format
-        fnmatch_pattern = pattern.replace("**", "[!/]*").replace("*", "[!/.]*")
-        return fnmatch.fnmatch(topic, fnmatch_pattern)
+        pattern_parts = pattern.split(".")
+        topic_parts = topic.split(".")
+
+        def match(p_idx: int, t_idx: int) -> bool:
+            while p_idx < len(pattern_parts):
+                part = pattern_parts[p_idx]
+
+                if part == "**":
+                    # "**" matches zero or more topic levels.
+                    if p_idx == len(pattern_parts) - 1:
+                        return True
+                    for next_idx in range(t_idx, len(topic_parts) + 1):
+                        if match(p_idx + 1, next_idx):
+                            return True
+                    return False
+
+                if t_idx >= len(topic_parts):
+                    return False
+
+                if part != "*" and part != topic_parts[t_idx]:
+                    return False
+
+                p_idx += 1
+                t_idx += 1
+
+            return t_idx == len(topic_parts)
+
+        return match(0, 0)
     
     def get_history(self, topic_pattern: Optional[str] = None,
                     since: Optional[datetime] = None,

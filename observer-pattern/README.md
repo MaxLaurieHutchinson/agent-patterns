@@ -5,24 +5,18 @@ The Observer pattern enables event-driven agent coordination. Agents subscribe t
 ## Core Concept
 
 ```
-┌──────────────┐     subscribe      ┌──────────────┐
-│   Agent A    │◀───────────────────│  Event Bus   │
-│ (interested  │                    │  (central    │
-│  in events)  │◀───────────────────│   hub)       │
-└──────────────┘     subscribe      └──────┬───────┘
-                                           │
-                                    publish │ events
-                                           │
-                                    ┌──────┴───────┐
-                                    │   Agent B    │
-                                    │ (publishes   │
-                                    │   events)    │
-                                    └──────────────┘
+Publishers -> Event Bus -> Subscribers
 ```
 
-**Event Bus** - Central hub for event distribution
-**Publishers** - Agents that emit events
-**Subscribers** - Agents that react to events
+- **Event Bus** - Central hub for event distribution
+- **Publishers** - Agents/components that emit events
+- **Subscribers** - Agents/components that react to events
+
+## Topic Pattern Semantics
+
+- `task.created` - exact topic
+- `task.*` - single-level wildcard (matches `task.created`, not `task.created.high`)
+- `agent.**` - multi-level wildcard (matches `agent.state`, `agent.state.changed`, etc.)
 
 ## When to Use
 
@@ -31,33 +25,37 @@ The Observer pattern enables event-driven agent coordination. Agents subscribe t
 - Multi-agent coordination
 - Real-time monitoring
 - Loose coupling between components
-- Reactive systems
 - Need to broadcast to multiple consumers
 
 ### ❌ Don't Use When:
 - Simple linear workflows
-- Need guaranteed delivery (use message queues)
+- Need guaranteed delivery semantics (use a queue/broker)
 - Tight coupling is acceptable/preferred
 
 ## Key Benefits
 
-1. **Loose Coupling** - Agents don't need to know about each other
+1. **Loose Coupling** - Components do not need direct references
 2. **Scalability** - Easy to add new subscribers
-3. **Flexibility** - Dynamic subscription/unsubscription
-4. **Reactivity** - Respond to events in real-time
-5. **Extensibility** - New event types without changes
+3. **Flexibility** - Dynamic subscribe/unsubscribe
+4. **Reactivity** - Respond to changes quickly
+5. **Extensibility** - New event types without heavy refactors
 
-## Event Types
+## This Repository's Implementation
 
-- **Task Events** - Task created, completed, failed
-- **State Events** - Agent state changes
-- **Message Events** - Inter-agent messages
-- **System Events** - Errors, warnings, metrics
-- **Custom Events** - Domain-specific events
+- Core implementation: `implementation.py`
+- Demo script: `example.py`
+- Includes topic subscriptions, wildcard routing, event history, and replay
+- Provides sample observer agents (`CoordinatorAgent`, `LoggingAgent`, `NotificationAgent`)
+
+### Current Tradeoffs
+
+- Delivery is in-process and best-effort (no persistence guarantees).
+- Async handlers are fire-and-forget in this reference model.
+- Ordering is straightforward for sync handlers but not globally serialized across async work.
 
 ## Related Patterns
 
-- **Multi-Agent Debate** - Can communicate via events
-- **Memory Hierarchy** - Events can trigger memory updates
-- **Circuit Breaker** - State changes emit events
-- **ReAct Loop** - Can react to external events
+- **Multi-Agent Debate** - Debate participants can coordinate through events
+- **Memory Hierarchy** - Event streams can feed memory updates
+- **Circuit Breaker** - Circuit state changes can be published as events
+- **ReAct Loop** - ReAct agents can react to external event signals

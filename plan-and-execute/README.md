@@ -5,7 +5,7 @@ The Plan-and-Execute pattern separates planning from execution. A planner breaks
 ## Core Concept
 
 ```
-Complex Task → Planner → [Subtask 1, Subtask 2, ...] → Executor → Results
+Complex Task -> Planner -> [Subtask 1, Subtask 2, ...] -> Executor -> Results
 ```
 
 Two main components:
@@ -35,10 +35,23 @@ Two main components:
 4. **Cost Control** - Use cheaper models for execution
 5. **Observability** - Clear view of what's happening
 
+## This Repository's Implementation
+
+- Core implementation: `implementation.py`
+- Demo script: `example.py`
+- Strategies: `sequential`, `parallel`, and `dynamic`
+- Graph flow: `plan -> execute -> (execute|replan|finalize)`
+
+### Current Tradeoffs
+
+- Plan parsing expects a constrained text format from the planner model.
+- Dynamic replanning is intentionally lightweight and increments replan attempts, but does not fully rebuild plan steps.
+- Tool execution in `_execute_single_step` is model-driven (not full autonomous tool routing).
+
 ## Architecture Variants
 
 ### Sequential Execution
-Execute steps one at a time in order.
+Execute steps one at a time in dependency order.
 
 ### Parallel Execution
 Execute independent steps concurrently.
@@ -47,17 +60,11 @@ Execute independent steps concurrently.
 Replan if execution reveals new information.
 
 ### Hierarchical Planning
-Plan → Sub-plans → Execution (recursive)
+Plan -> Sub-plans -> Execution (recursive)
 
 ## Related Patterns
 
-- **ReAct Loop** - Perfect executor for individual steps
+- **ReAct Loop** - Good executor for individual steps
 - **Multi-Agent Debate** - Can review and improve plans
 - **Memory Hierarchy** - Store plans and execution history
 - **Observer Pattern** - Monitor plan execution progress
-
-## Implementation Approaches
-
-1. **LangGraph Plan-and-Execute** - Built-in implementation
-2. **LLMCompiler** - Compiles plans for parallel execution
-3. **Tree of Thoughts** - Explores multiple plan branches

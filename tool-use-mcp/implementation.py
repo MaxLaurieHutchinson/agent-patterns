@@ -8,6 +8,7 @@ from dataclasses import dataclass, field
 from datetime import datetime
 import json
 import time
+import os
 from abc import ABC, abstractmethod
 
 
@@ -270,7 +271,7 @@ class FileSystemTool(MCPTool):
     
     def __init__(self, base_path: str = "."):
         super().__init__()
-        self.base_path = base_path
+        self.base_path = os.path.abspath(base_path)
     
     @property
     def name(self) -> str:
@@ -307,16 +308,17 @@ class FileSystemTool(MCPTool):
     
     def _execute(self, operation: str, path: str, content: Optional[str] = None) -> dict:
         """Execute file operation."""
-        import os
-        
-        full_path = os.path.join(self.base_path, path)
+        full_path = self._resolve_path(path)
         
         if operation == "read":
-            with open(full_path, 'r') as f:
+            with open(full_path, "r", encoding="utf-8") as f:
                 return {"content": f.read()}
         
         elif operation == "write":
-            with open(full_path, 'w') as f:
+            parent_dir = os.path.dirname(full_path)
+            if parent_dir:
+                os.makedirs(parent_dir, exist_ok=True)
+            with open(full_path, "w", encoding="utf-8") as f:
                 f.write(content or "")
             return {"status": "written", "path": path}
         
@@ -326,6 +328,13 @@ class FileSystemTool(MCPTool):
         
         else:
             raise ValueError(f"Unknown operation: {operation}")
+
+    def _resolve_path(self, path: str) -> str:
+        """Resolve a path and ensure it stays within base_path."""
+        candidate = os.path.abspath(os.path.join(self.base_path, path))
+        if os.path.commonpath([self.base_path, candidate]) != self.base_path:
+            raise ValueError("Path escapes base path")
+        return candidate
 
 
 class MCPRegistry:
