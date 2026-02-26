@@ -183,8 +183,6 @@ Think about which steps can be done in parallel."""
                 return self._execute_parallel(state, plan)
             else:  # dynamic
                 return self._execute_sequential(state, plan)  # Start with sequential
-            
-        return state
         
         def replan_step(state: PlanExecuteState) -> PlanExecuteState:
             """Replan based on execution results."""
@@ -297,9 +295,14 @@ Provide a clear, concise final answer."""
                 if all(plan.get_step(dep) and plan.get_step(dep).status == StepStatus.COMPLETED 
                        for dep in step.dependencies):
                     step.status = StepStatus.IN_PROGRESS
-                    result = self._execute_single_step(step)
-                    step.result = result
-                    step.status = StepStatus.COMPLETED if not step.error else StepStatus.FAILED
+                    try:
+                        result = self._execute_single_step(step)
+                        step.result = result
+                        step.status = StepStatus.COMPLETED if not step.error else StepStatus.FAILED
+                    except Exception as e:
+                        step.error = str(e)
+                        step.status = StepStatus.FAILED
+                        result = f"Error: {e}"
                     
                     results = dict(state["results"])
                     results[step.id] = result

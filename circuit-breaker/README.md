@@ -1,25 +1,17 @@
 # Circuit Breaker Pattern
 
-The Circuit Breaker pattern prevents cascading failures by stopping requests when error rates or costs exceed thresholds. Essential for production LLM systems.
+The Circuit Breaker pattern prevents cascading failures by stopping requests when error rates or costs exceed thresholds. It is especially useful for production LLM and tool-calling systems.
 
 ## Core Concept
 
 ```
-┌─────────┐     ┌─────────┐     ┌─────────┐
-│  CLOSED │────▶│  OPEN   │────▶│ HALF-OPEN│
-│ (normal)│     │ (failing)│     │ (testing)│
-└────┬────┘     └────┬────┘     └────┬────┘
-     │               │               │
-     │ Failure       │ Timeout       │ Success
-     │ threshold     │ expires       │ threshold
-     ▼               ▼               ▼
-  Open circuit    Try test      Close circuit
+CLOSED -> OPEN -> HALF-OPEN -> CLOSED
 ```
 
 The circuit has three states:
 - **CLOSED** - Normal operation, requests pass through
 - **OPEN** - Failing fast, requests rejected immediately
-- **HALF-OPEN** - Testing if service recovered
+- **HALF-OPEN** - Testing whether the dependency recovered
 
 ## When to Use
 
@@ -28,7 +20,7 @@ The circuit has three states:
 - Cost-sensitive applications
 - High-availability requirements
 - Preventing cascading failures
-- Protecting against rate limits
+- Protecting against provider rate limits
 - Handling intermittent API issues
 
 ### ❌ Don't Use When:
@@ -38,23 +30,28 @@ The circuit has three states:
 
 ## Key Benefits
 
-1. **Fail Fast** - Don't waste time on failing calls
-2. **Cost Control** - Stop expensive LLM calls when failing
-3. **System Resilience** - Prevent cascading failures
-4. **Graceful Degradation** - Can fallback to alternatives
-5. **Recovery Detection** - Automatically test recovery
+1. **Fail Fast** - Avoid repeated expensive failures
+2. **Cost Control** - Enforce budget windows
+3. **System Resilience** - Reduce blast radius of dependency outages
+4. **Graceful Degradation** - Fallback behavior when open
+5. **Recovery Detection** - Half-open probing for restoration
 
-## Thresholds and Configuration
+## This Repository's Implementation
 
-- **Failure Threshold** - Number of failures before opening
-- **Success Threshold** - Successes needed to close from half-open
-- **Timeout Duration** - How long to stay open before testing
-- **Cost Threshold** - Maximum spend per time window
-- **Rate Limit** - Maximum requests per second
+- Core implementation: `implementation.py`
+- Demo script: `example.py`
+- Includes failure thresholds, timeouts, rate limiting, and cost windows
+- Tracks state transitions and call metrics
+
+### Current Notes
+
+- Success/failure counts are tracked internally; `call()` already records success/failure outcomes.
+- `record_cost()` is explicit so actual known cost can be added after a call.
+- Fallback behavior is optional via `fallback_function` in `CircuitConfig`.
 
 ## Related Patterns
 
-- **Retry Pattern** - Often combined with circuit breaker
-- **Fallback Pattern** - Alternative when circuit is open
+- **Retry Pattern** - Often paired with circuit breaker
+- **Fallback Pattern** - Alternative path while open
 - **Bulkhead Pattern** - Isolate different failure domains
-- **Observer Pattern** - Monitor circuit state changes
+- **Observer Pattern** - Publish circuit state changes

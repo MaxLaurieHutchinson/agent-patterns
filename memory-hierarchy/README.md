@@ -5,83 +5,67 @@ The Memory Hierarchy pattern implements a multi-layered memory system for agents
 ## Core Concept
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                    Memory Hierarchy                         │
-├─────────────────────────────────────────────────────────────┤
-│                                                             │
-│  ┌─────────────────────────────────────────────────────┐   │
-│  │ WORKING MEMORY (Immediate)                          │   │
-│  │ - Current conversation context                      │   │
-│  │ - Active goals and tasks                            │   │
-│  │ - Recent observations                               │   │
-│  │ Size: Limited (last N messages)                     │   │
-│  └────────────────────┬────────────────────────────────┘   │
-│                       │                                      │
-│                       ▼                                      │
-│  ┌─────────────────────────────────────────────────────┐   │
-│  │ EPISODIC MEMORY (Personal History)                  │   │
-│  │ - Past conversations                                │   │
-│  │ - Previous task outcomes                            │   │
-│  │ - User preferences learned                          │   │
-│  │ Retrieval: Similarity search on embeddings          │   │
-│  └────────────────────┬────────────────────────────────┘   │
-│                       │                                      │
-│                       ▼                                      │
-│  ┌─────────────────────────────────────────────────────┐   │
-│  │ SEMANTIC MEMORY (General Knowledge)                 │   │
-│  │ - Facts and concepts                                │   │
-│  │ - Procedures and rules                              │   │
-│  │ - Domain knowledge                                  │   │
-│  │ Storage: Vector DB, Knowledge Graph                 │   │
-│  └─────────────────────────────────────────────────────┘   │
-│                                                             │
-└─────────────────────────────────────────────────────────────┘
+Working (short-term) -> Episodic (experience) -> Semantic (facts/knowledge)
 ```
 
 ## Memory Types
 
 ### Working Memory
 - **Scope:** Current session/conversation
-- **Lifetime:** Ephemeral (session duration)
-- **Access:** Immediate (O(1))
-- **Size:** Limited (context window constraints)
+- **Lifetime:** Ephemeral
+- **Access:** Immediate
+- **Size:** Bounded by configured message count
 
-### Episodic Memory  
-- **Scope:** Personal experiences with user
-- **Lifetime:** Persistent
-- **Access:** Similarity search
-- **Use:** "Last time we talked about...", "You prefer..."
+### Episodic Memory
+- **Scope:** Past interactions and outcomes
+- **Lifetime:** Persistent in process/runtime store
+- **Access:** Embedding similarity or keyword fallback
+- **Use:** User preferences, prior conversations, historical context
 
 ### Semantic Memory
-- **Scope:** General facts and knowledge
-- **Lifetime:** Persistent
-- **Access:** Query/search
-- **Use:** "The capital of France is...", "To deploy X, you should..."
+- **Scope:** Structured facts and relationships
+- **Lifetime:** Persistent in process/runtime store
+- **Access:** Key/query lookup
+- **Use:** Known facts, domain knowledge, relationship graphs
 
 ## When to Use
 
 ### ✅ Use Memory Hierarchy When:
 - Long-running agents with user relationships
 - Need to learn from past interactions
-- Complex tasks requiring context from previous sessions
-- Personal assistants
+- Complex tasks needing cross-session context
+- Personal assistant-style behavior
 - Knowledge-intensive applications
 
 ### ❌ Don't Use When:
 - Stateless, one-shot tasks
-- Strict privacy requirements (no persistence)
-- Memory overhead not justified
+- Strict no-persistence privacy requirements
+- Memory overhead is not justified
 
 ## Key Benefits
 
-1. **Contextual Awareness** - Remember important context
-2. **Personalization** - Learn user preferences
-3. **Continuity** - Conversations span sessions
-4. **Learning** - Improve from past experiences
-5. **Efficiency** - Retrieve relevant info instead of recomputing
+1. **Contextual Awareness** - Preserve relevant context
+2. **Personalization** - Learn user preferences over time
+3. **Continuity** - Span sessions with remembered state
+4. **Learning** - Improve from prior outcomes
+5. **Efficiency** - Retrieve instead of recompute
+
+## This Repository's Implementation
+
+- Core implementation: `implementation.py`
+- Demo script: `example.py`
+- Working memory: bounded deque of recent messages + goals/context
+- Episodic memory: scored retrieval using embedding or keyword overlap
+- Semantic memory: fact store + simple entity relationship queries
+
+### Current Tradeoffs
+
+- Semantic `query()` currently uses simple key-based matching.
+- Episodic embeddings are optional; without an embedding model it falls back to keyword matching.
+- Storage is in-memory in this reference implementation (no external DB by default).
 
 ## Related Patterns
 
-- **ReAct Loop** - Can query memory during reasoning
-- **Observer Pattern** - Memory changes trigger events
-- **Multi-Agent Debate** - Agents share common semantic memory
+- **ReAct Loop** - Can retrieve memory during reasoning
+- **Observer Pattern** - Memory updates can emit events
+- **Multi-Agent Debate** - Shared semantic memory across agents

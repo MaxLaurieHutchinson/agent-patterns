@@ -1,6 +1,16 @@
 # Agent Patterns Catalog
 
-A comprehensive reference library of agentic design patterns with working implementations.
+A practical reference library of agentic design patterns with Python implementations and runnable demos.
+
+## Repository Structure
+
+- `react-loop/` - Reasoning + acting loop with tool calls
+- `plan-and-execute/` - Planning/execution state machine with multiple strategies
+- `multi-agent-debate/` - Multi-role collaborative reasoning
+- `circuit-breaker/` - Reliability guard for LLM/tool calls
+- `memory-hierarchy/` - Working, episodic, and semantic memory layers
+- `observer-pattern/` - Event bus and pub/sub coordination model
+- `tool-use-mcp/` - MCP-style tool registry + execution adapter
 
 ## Quick Decision Matrix
 
@@ -109,7 +119,9 @@ These patterns are particularly visual and educational for video content:
 ## Installation
 
 ```bash
-pip install langgraph langchain openai
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
 ```
 
 ## Running Examples
@@ -117,9 +129,23 @@ pip install langgraph langchain openai
 Each pattern includes a runnable example:
 
 ```bash
-cd patterns/react-loop
+cd react-loop
 python example.py
 ```
+
+Some examples require `OPENAI_API_KEY`. If unset, most demos fall back to mock mode.
+
+## Running Tests
+
+```bash
+python3.11 -m unittest discover -s tests -v
+```
+
+## Notes on Scope
+
+- This repo is a reference implementation, not a complete production framework.
+- Several patterns intentionally keep simple heuristics for readability (for example consensus detection and plan parsing).
+- Security-sensitive components are guarded where appropriate (for example filesystem tool paths are constrained to a configured base directory).
 
 ## Contributing
 
