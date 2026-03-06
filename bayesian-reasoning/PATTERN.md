@@ -28,3 +28,12 @@ Diagnostic test with sensitivity/specificity.
 - [ ] Produces expected output
 - [ ] Handles invalid input safely
 - [ ] Is deterministic where expected
+
+## Common Pitfalls
+- Using priors that are not justified
+- Forgetting to normalize distributions
+- Treating likelihoods as certainties
+
+## Further Reading
+- [E. T. Jaynes, Probability Theory: The Logic of Science](https://bayes.wustl.edu/etj/prob/book.pdf)
+- [Gelman et al., Bayesian Data Analysis](https://sites.stat.columbia.edu/gelman/book/)

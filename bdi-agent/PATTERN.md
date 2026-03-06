@@ -31,3 +31,11 @@ Assistant chooses to schedule a meeting based on inbox signals.
 - [ ] Produces expected output
 - [ ] Handles invalid input safely
 - [ ] Is deterministic where expected
+
+## Common Pitfalls
+- Letting beliefs drift without clear update rules
+- Creating desires without priorities
+- Changing intentions too frequently
+
+## Further Reading
+- [BDI Agents: From Theory to Practice (Rao & Georgeff, 1995)](https://users.cs.utah.edu/~tch/notes/refs/Rao-Georgeff1995.pdf)

@@ -31,3 +31,11 @@ Toy spam classifier.
 - [ ] Produces expected output
 - [ ] Handles invalid input safely
 - [ ] Is deterministic where expected
+
+## Common Pitfalls
+- Skipping feature scaling
+- Training with too few epochs
+- Using a fixed threshold when costs are asymmetric
+
+## Further Reading
+- [Hastie, Tibshirani, Friedman: The Elements of Statistical Learning](https://hastie.su.domains/ElemStatLearn/)

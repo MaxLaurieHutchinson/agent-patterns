@@ -32,3 +32,12 @@ Grid navigation with noisy sensors.
 - [ ] Produces expected output
 - [ ] Handles invalid input safely
 - [ ] Is deterministic where expected
+
+## Common Pitfalls
+- Modeling an MDP when the system is partially observable
+- Using poorly estimated transitions
+- Ignoring belief normalization
+
+## Further Reading
+- [Sutton & Barto, Reinforcement Learning (2nd ed.)](http://incompleteideas.net/book/bookdraft2016sep.pdf)
+- [Kaelbling, Littman, Cassandra, Planning in POMDPs](https://people.csail.mit.edu/lpk/papers/aij98.pdf)

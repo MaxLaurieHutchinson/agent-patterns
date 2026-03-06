@@ -32,3 +32,11 @@ Incident response loop that stabilizes a service.
 - [ ] Produces expected output
 - [ ] Handles invalid input safely
 - [ ] Is deterministic where expected
+
+## Common Pitfalls
+- Treating orientation as optional
+- Looping without a stopping condition
+- Using stale observations to decide
+
+## Further Reading
+- [John Boyd, A Discourse on Winning and Losing](https://www.airuniversity.af.edu/Portals/10/AUPress/Books/B_0151_Boyd_Discourse_Winning_Losing.PDF)

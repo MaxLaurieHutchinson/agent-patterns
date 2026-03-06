@@ -28,3 +28,11 @@ Weather transitions: sunny -> rainy.
 - [ ] Produces expected output
 - [ ] Handles invalid input safely
 - [ ] Is deterministic where expected
+
+## Common Pitfalls
+- Using transition rows that do not sum to 1
+- Ignoring absorbing states
+- Treating non-stationary dynamics as stationary
+
+## Further Reading
+- [Grinstead & Snell, Introduction to Probability (Markov chains)](https://math.dartmouth.edu/~prob/prob/prob.pdf)

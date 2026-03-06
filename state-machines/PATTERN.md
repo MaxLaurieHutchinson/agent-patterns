@@ -29,3 +29,11 @@ Onboarding flow states.
 - [ ] Produces expected output
 - [ ] Handles invalid input safely
 - [ ] Is deterministic where expected
+
+## Common Pitfalls
+- Forgetting default transitions
+- Storing implicit state outside the FSM
+- Letting state counts grow without pruning
+
+## Further Reading
+- [Harel, Statecharts: A Visual Formalism for Complex Systems](https://www.wisdom.weizmann.ac.il/~harel/SCANNED.PAPERS/Statecharts.pdf)

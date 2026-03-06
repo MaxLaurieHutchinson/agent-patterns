@@ -28,3 +28,11 @@ Budgeted resource allocation.
 - [ ] Produces expected output
 - [ ] Handles invalid input safely
 - [ ] Is deterministic where expected
+
+## Common Pitfalls
+- Treating a heuristic as optimal
+- Allowing zero or negative weights
+- Ignoring alternative heuristics for skewed data
+
+## Further Reading
+- [Kellerer, Pferschy, Pisinger: Knapsack Problems](https://link.springer.com/book/10.1007/978-3-540-24777-7)

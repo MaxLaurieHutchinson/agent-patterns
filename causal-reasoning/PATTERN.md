@@ -28,3 +28,12 @@ Marketing lift vs baseline.
 - [ ] Produces expected output
 - [ ] Handles invalid input safely
 - [ ] Is deterministic where expected
+
+## Common Pitfalls
+- Using causal claims without identifying assumptions
+- Ignoring confounders and selection bias
+- Confusing interventions with observations
+
+## Further Reading
+- [Pearl, Causality: Models, Reasoning, and Inference](https://www.cambridge.org/core/books/causality/36D1FE3B15B411C627E8FA3A48C7B0A9)
+- [Pearl, Causality (online materials)](https://bayes.cs.ucla.edu/BOOK-2K/)

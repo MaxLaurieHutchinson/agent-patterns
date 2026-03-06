@@ -33,8 +33,9 @@ class MCTSNode:
 
 
 class MCTS:
-    def __init__(self, rng: random.Random | None = None):
+    def __init__(self, rng: random.Random | None = None, max_depth: int = 100):
         self.rng = rng or random.Random()
+        self.max_depth = max_depth
 
     def search(self, root_state, iters: int = 100) -> object:
         root = MCTSNode(root_state)
@@ -72,8 +73,12 @@ class MCTS:
 
     def _rollout(self, state) -> float:
         current = state
-        while not current.is_terminal():
+        for _ in range(self.max_depth):
+            if current.is_terminal():
+                break
             actions = current.get_actions()
+            if not actions:
+                break
             action = self.rng.choice(actions)
             current = current.next_state(action)
         return current.evaluate()

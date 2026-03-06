@@ -15,3 +15,25 @@ Beliefs, desires, intentions for goal-driven agents.
 ## Tradeoffs
 - Needs clear priority rules
 - Intentions can become stale
+
+## When To Use
+- You need explicit belief, desire, and intention separation
+- Goals and priorities change based on new percepts
+- You want transparent intention selection
+
+## When Not To Use
+- Behavior is purely reactive and stateless
+- Continuous control dominates decision-making
+- You need learned policies over large state spaces
+
+## Failure Modes
+- Stale beliefs leading to wrong intentions
+- Desire conflicts without a clear tie-breaker
+- Intention thrashing across steps
+
+## Variants
+- Commitment strategies for persistent intentions
+- Utility-based intention selection
+
+## Further Reading
+- [BDI Agents: From Theory to Practice (Rao & Georgeff, 1995)](https://users.cs.utah.edu/~tch/notes/refs/Rao-Georgeff1995.pdf)

@@ -28,3 +28,11 @@ Combine three classifiers.
 - [ ] Produces expected output
 - [ ] Handles invalid input safely
 - [ ] Is deterministic where expected
+
+## Common Pitfalls
+- Voting without checking base model diversity
+- Using weights that are not validated
+- Ignoring tie-breaking rules
+
+## Further Reading
+- [Dietterich, Ensemble Methods in Machine Learning](https://link.springer.com/chapter/10.1007/3-540-45014-9_1)

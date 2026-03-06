@@ -26,3 +26,12 @@ Pick strategy under uncertain demand.
 - [ ] Produces expected output
 - [ ] Handles invalid input safely
 - [ ] Is deterministic where expected
+
+## Common Pitfalls
+- Using unnormalized probabilities
+- Mixing incomparable utility scales
+- Ignoring risk preferences
+
+## Further Reading
+- [Von Neumann & Morgenstern, Theory of Games and Economic Behavior](https://press.princeton.edu/books/hardcover/9780691130613/theory-of-games-and-economic-behavior)
+- [Expected Utility Theory (Cambridge Elements)](https://www.cambridge.org/core/elements/expected-utility-theory/0568AA577C9CF77F402491BCEFA1AA9D)

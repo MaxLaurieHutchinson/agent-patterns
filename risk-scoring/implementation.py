@@ -13,6 +13,8 @@ class RiskResult:
 
 class RiskScorer:
     def __init__(self, weights: dict[str, float], thresholds: list[tuple[float, str]]):
+        if not thresholds:
+            raise ValueError("thresholds must be non-empty")
         self.weights = weights
         self.thresholds = sorted(thresholds, key=lambda t: t[0])
 

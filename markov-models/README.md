@@ -15,3 +15,26 @@ State transitions with probabilities.
 ## Tradeoffs
 - Requires normalized probabilities
 - Assumes Markov property
+
+## When To Use
+- State transitions are approximately memoryless
+- You can estimate transition probabilities
+- You need a simple stochastic sequence model
+
+## When Not To Use
+- Long-range history matters
+- Dynamics are highly non-stationary
+- You need continuous or high-dimensional states
+
+## Failure Modes
+- Poor estimates for rare transitions
+- Transition rows that do not sum to 1
+- Absorbing states introduced unintentionally
+
+## Variants
+- Higher-order Markov chains
+- Hidden Markov Models (HMMs)
+- Time-inhomogeneous transitions
+
+## Further Reading
+- [Grinstead & Snell, Introduction to Probability (Markov chains)](https://math.dartmouth.edu/~prob/prob/prob.pdf)

@@ -15,3 +15,26 @@ Explicit transitions and handlers.
 ## Tradeoffs
 - Needs full transition coverage
 - Can grow large
+
+## When To Use
+- Workflows have clear, discrete states
+- You need explicit control over transitions
+- You want deterministic behavior
+
+## When Not To Use
+- State space is continuous or very large
+- Transitions are highly stochastic
+- You need adaptive policies over time
+
+## Failure Modes
+- Missing transitions for edge events
+- State explosion as features grow
+- Hidden state stored outside the machine
+
+## Variants
+- Hierarchical state machines
+- Statecharts with concurrency
+- Event-driven reducers
+
+## Further Reading
+- [Harel, Statecharts: A Visual Formalism for Complex Systems](https://www.wisdom.weizmann.ac.il/~harel/SCANNED.PAPERS/Statecharts.pdf)

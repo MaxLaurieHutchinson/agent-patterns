@@ -27,3 +27,12 @@ Reject low-confidence classifications.
 - [ ] Produces expected output
 - [ ] Handles invalid input safely
 - [ ] Is deterministic where expected
+
+## Common Pitfalls
+- Setting thresholds without calibration data
+- Ignoring the abstain rate in evaluation
+- Using a single threshold across segments
+
+## Further Reading
+- [Guo et al., On Calibration of Modern Neural Networks](https://proceedings.mlr.press/v70/guo17a.html)
+- [Fumera et al., Classification with Rejection](https://proceedings.mlr.press/v119/fumera20a.html)

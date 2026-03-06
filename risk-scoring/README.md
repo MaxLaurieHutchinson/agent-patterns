@@ -15,3 +15,26 @@ Weighted scoring with thresholds.
 ## Tradeoffs
 - Heuristic thresholds
 - Requires calibration
+
+## When To Use
+- You need quick, explainable risk tiers
+- A weighted scorecard is acceptable
+- Outputs must be easy to audit
+
+## When Not To Use
+- Non-linear interactions dominate outcomes
+- Thresholds cannot be reliably calibrated
+- You need fully probabilistic estimates
+
+## Failure Modes
+- Stale weights after distribution shifts
+- Thresholds tuned on small or biased samples
+- Missing features treated as zero
+
+## Variants
+- Scorecards with binned features
+- Logistic-regression-based scores
+- Calibrated probability outputs
+
+## Further Reading
+- [Credit Scoring and Its Applications (SIAM)](https://epubs.siam.org/doi/10.1137/1.9781611972733)

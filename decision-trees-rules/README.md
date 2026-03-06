@@ -15,3 +15,26 @@ Rule-based decisions.
 ## Tradeoffs
 - Brittle rules
 - Needs maintenance
+
+## When To Use
+- You need transparent, auditable decisions
+- Inputs map to clear, discrete outcomes
+- Order of rules is meaningful
+
+## When Not To Use
+- You need probabilistic outputs
+- Rules change frequently without governance
+- The decision boundary is highly complex
+
+## Failure Modes
+- Rule conflicts or unexpected overlaps
+- Order dependence hiding better matches
+- Rule sprawl over time
+
+## Variants
+- Decision trees (CART, ID3)
+- Rule lists with scoring
+- Decision tables
+
+## Further Reading
+- [Breiman et al., Classification and Regression Trees](https://www.routledge.com/Classification-and-Regression-Trees/Breiman-Friedman-Olshen-Stone/p/book/9780412048418)

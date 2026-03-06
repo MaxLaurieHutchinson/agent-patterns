@@ -29,3 +29,11 @@ Transaction risk labeling.
 - [ ] Produces expected output
 - [ ] Handles invalid input safely
 - [ ] Is deterministic where expected
+
+## Common Pitfalls
+- Using thresholds without calibration data
+- Ignoring missing or sparse features
+- Treating the score as a probability
+
+## Further Reading
+- [Credit Scoring and Its Applications (SIAM)](https://epubs.siam.org/doi/10.1137/1.9781611972733)

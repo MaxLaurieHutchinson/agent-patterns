@@ -28,3 +28,11 @@ Support ticket routing.
 - [ ] Produces expected output
 - [ ] Handles invalid input safely
 - [ ] Is deterministic where expected
+
+## Common Pitfalls
+- Overlapping rules with unclear precedence
+- No default rule for unexpected inputs
+- Treating rules as a substitute for calibration
+
+## Further Reading
+- [Breiman et al., Classification and Regression Trees](https://www.routledge.com/Classification-and-Regression-Trees/Breiman-Friedman-Olshen-Stone/p/book/9780412048418)
