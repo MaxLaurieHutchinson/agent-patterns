@@ -14,6 +14,22 @@ A practical reference library of agentic design patterns with Python implementat
 - `router-delegation/` - Intent routing and specialist handoff
 - `reflection-verifier/` - Draft, verify, revise quality loop
 - `checkpoint-resume/` - Persisted workflow recovery and resume
+- `ooda-loop/` - Observe, orient, decide, act loop
+- `bdi-agent/` - Belief-desire-intention agent
+- `bayesian-reasoning/` - Bayesian update models
+- `logistic-regression/` - Probabilistic classifier
+- `markov-models/` - Stochastic state transitions
+- `risk-scoring/` - Heuristic risk scoring
+- `mdp-pomdp/` - Decision under uncertainty
+- `bandits-explore-exploit/` - Explore/exploit strategies
+- `expected-utility/` - Utility maximization
+- `decision-trees-rules/` - Rule-based decisions
+- `monte-carlo-tree-search/` - Stochastic search
+- `ensemble-voting/` - Vote aggregation
+- `calibration-abstain/` - Threshold abstain policy
+- `constraint-optimization/` - Greedy knapsack heuristic
+- `causal-reasoning/` - Structural causal models
+- `state-machines/` - Finite state machines
 - `templates/` - Reusable docs scaffolds for new patterns
 
 ## Quick Decision Matrix
@@ -28,8 +44,24 @@ A practical reference library of agentic design patterns with Python implementat
 | **Observer Pattern** | Event-driven coordination, reactive systems | Simple linear workflows | Medium | Real-time monitoring, multi-agent systems |
 | **Tool Use (MCP)** | Integrating external tools/resources | No external dependencies | Medium | Tool-augmented agents |
 | **Router + Delegation** | Many task types need specialists | One generalist can handle all tasks | Medium | Multi-agent orchestration |
-| **Reflection + Verifier** | Correctness checks are important | Purely creative freeform output | Medium | Safer answer generation |
+| **Reflection + Verifier** | Correctness checks are important | Purely creative output | Medium | Safer answer generation |
 | **Checkpoint + Resume** | Long jobs can be interrupted | Work is short and cheap to rerun | Medium | Fault-tolerant workflows |
+| **OODA Loop** | Tight decision cycles | No clear decision stages | Medium | Rapid response loops |
+| **BDI Agent** | Goal-driven behavior | Goals are unstable | Medium | Intentional agents |
+| **Bayesian Reasoning** | Evidence updates matter | Probabilities unavailable | Medium | Diagnostics and inference |
+| **Logistic Regression** | Binary classification | Non-linear boundaries | Medium | Probabilistic classification |
+| **Markov Models** | Transition dynamics known | Long-range dependencies | Medium | State transitions |
+| **Risk Scoring** | Fast risk labeling | High-stakes decisions | Low | Triage and routing |
+| **MDP/POMDP** | Decision under uncertainty | Large state spaces | High | Policy optimization |
+| **Bandits** | Explore/exploit tradeoffs | Full planning needed | Medium | Adaptive selection |
+| **Expected Utility** | Clear outcomes/utility | Utility undefined | Low | Choice under uncertainty |
+| **Decision Trees/Rules** | Rule-based routing | Rules unstable | Low | Deterministic routing |
+| **MCTS** | Lookahead search | Tight latency limits | High | Game-like planning |
+| **Ensemble Voting** | Combine weak models | Single model suffices | Low | Robust predictions |
+| **Calibration/Abstain** | Confidence gating | Must always answer | Low | Safety gating |
+| **Constraint Optimization** | Select under capacity | Need optimal solution | Medium | Budgeted selection |
+| **Causal Reasoning** | Interventions matter | No causal model | Medium | What-if analysis |
+| **State Machines** | Explicit state flow | Highly dynamic transitions | Low | Workflow control |
 
 ## Pattern Summaries
 
@@ -174,6 +206,11 @@ Some examples require `OPENAI_API_KEY`. If unset, most demos fall back to mock m
 ```bash
 python3.11 -m unittest discover -s tests -v
 ```
+
+
+## Decision Model Taxonomy
+
+See `DECISION_MODELS.md` for deterministic/probabilistic/heuristic tagging.
 
 ## Notes on Scope
 
