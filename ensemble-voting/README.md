@@ -37,4 +37,4 @@ Combine multiple weak models.
 - Soft voting on probabilities
 
 ## Further Reading
-- [Dietterich, Ensemble Methods in Machine Learning](https://link.springer.com/chapter/10.1007/3-540-45014-9_1)
+- See [DECISION_MODEL_READINGS.md](../DECISION_MODEL_READINGS.md#ensemble-voting)

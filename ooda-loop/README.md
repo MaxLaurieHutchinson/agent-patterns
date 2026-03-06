@@ -36,4 +36,4 @@ Observe, orient, decide, act in a tight decision cycle.
 - Nested loops at tactical and strategic levels
 
 ## Further Reading
-- [John Boyd, A Discourse on Winning and Losing](https://www.airuniversity.af.edu/Portals/10/AUPress/Books/B_0151_Boyd_Discourse_Winning_Losing.PDF)
+- See [DECISION_MODEL_READINGS.md](../DECISION_MODEL_READINGS.md#ooda-loop)

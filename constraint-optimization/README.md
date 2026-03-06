@@ -37,4 +37,4 @@ Choose items under constraints.
 - Integer programming solvers
 
 ## Further Reading
-- [Kellerer, Pferschy, Pisinger: Knapsack Problems](https://link.springer.com/book/10.1007/978-3-540-24777-7)
+- See [DECISION_MODEL_READINGS.md](../DECISION_MODEL_READINGS.md#constraint-optimization)

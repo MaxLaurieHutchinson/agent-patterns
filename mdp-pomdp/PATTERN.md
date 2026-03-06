@@ -39,5 +39,4 @@ Grid navigation with noisy sensors.
 - Ignoring belief normalization
 
 ## Further Reading
-- [Sutton & Barto, Reinforcement Learning (2nd ed.)](http://incompleteideas.net/book/bookdraft2016sep.pdf)
-- [Kaelbling, Littman, Cassandra, Planning in POMDPs](https://people.csail.mit.edu/lpk/papers/aij98.pdf)
+- See [DECISION_MODEL_READINGS.md](../DECISION_MODEL_READINGS.md#mdp-pomdp)

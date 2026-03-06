@@ -35,4 +35,4 @@ Weather transitions: sunny -> rainy.
 - Treating non-stationary dynamics as stationary
 
 ## Further Reading
-- [Grinstead & Snell, Introduction to Probability (Markov chains)](https://math.dartmouth.edu/~prob/prob/prob.pdf)
+- See [DECISION_MODEL_READINGS.md](../DECISION_MODEL_READINGS.md#markov-models)

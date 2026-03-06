@@ -36,4 +36,4 @@ Beliefs, desires, intentions for goal-driven agents.
 - Utility-based intention selection
 
 ## Further Reading
-- [BDI Agents: From Theory to Practice (Rao & Georgeff, 1995)](https://users.cs.utah.edu/~tch/notes/refs/Rao-Georgeff1995.pdf)
+- See [DECISION_MODEL_READINGS.md](../DECISION_MODEL_READINGS.md#bdi-agent)

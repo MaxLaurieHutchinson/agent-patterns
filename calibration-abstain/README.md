@@ -37,5 +37,4 @@ Refuse low-confidence decisions.
 - Conformal prediction for abstain sets
 
 ## Further Reading
-- [Guo et al., On Calibration of Modern Neural Networks](https://proceedings.mlr.press/v70/guo17a.html)
-- [Fumera et al., Classification with Rejection](https://proceedings.mlr.press/v119/fumera20a.html)
+- See [DECISION_MODEL_READINGS.md](../DECISION_MODEL_READINGS.md#calibration-abstain)

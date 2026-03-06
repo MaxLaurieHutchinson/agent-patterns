@@ -36,4 +36,4 @@ Transaction risk labeling.
 - Treating the score as a probability
 
 ## Further Reading
-- [Credit Scoring and Its Applications (SIAM)](https://epubs.siam.org/doi/10.1137/1.9781611972733)
+- See [DECISION_MODEL_READINGS.md](../DECISION_MODEL_READINGS.md#risk-scoring)

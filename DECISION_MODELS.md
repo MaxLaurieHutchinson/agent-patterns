@@ -1,5 +1,7 @@
 # Decision Models Taxonomy
 
+See `DECISION_MODEL_READINGS.md` for centralized further reading links.
+
 This document groups decision‑model patterns into three families:
 
 - **Deterministic**: Same inputs yield the same outputs with no randomness.

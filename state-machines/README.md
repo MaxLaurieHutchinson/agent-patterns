@@ -37,4 +37,4 @@ Explicit transitions and handlers.
 - Event-driven reducers
 
 ## Further Reading
-- [Harel, Statecharts: A Visual Formalism for Complex Systems](https://www.wisdom.weizmann.ac.il/~harel/SCANNED.PAPERS/Statecharts.pdf)
+- See [DECISION_MODEL_READINGS.md](../DECISION_MODEL_READINGS.md#state-machines)

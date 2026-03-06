@@ -35,4 +35,4 @@ Support ticket routing.
 - Treating rules as a substitute for calibration
 
 ## Further Reading
-- [Breiman et al., Classification and Regression Trees](https://www.routledge.com/Classification-and-Regression-Trees/Breiman-Friedman-Olshen-Stone/p/book/9780412048418)
+- See [DECISION_MODEL_READINGS.md](../DECISION_MODEL_READINGS.md#decision-trees-rules)

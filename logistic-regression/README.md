@@ -37,4 +37,4 @@ Simple probabilistic classifier.
 - Stochastic gradient descent
 
 ## Further Reading
-- [Hastie, Tibshirani, Friedman: The Elements of Statistical Learning](https://hastie.su.domains/ElemStatLearn/)
+- See [DECISION_MODEL_READINGS.md](../DECISION_MODEL_READINGS.md#logistic-regression)

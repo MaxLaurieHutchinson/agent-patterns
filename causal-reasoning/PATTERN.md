@@ -35,5 +35,4 @@ Marketing lift vs baseline.
 - Confusing interventions with observations
 
 ## Further Reading
-- [Pearl, Causality: Models, Reasoning, and Inference](https://www.cambridge.org/core/books/causality/36D1FE3B15B411C627E8FA3A48C7B0A9)
-- [Pearl, Causality (online materials)](https://bayes.cs.ucla.edu/BOOK-2K/)
+- See [DECISION_MODEL_READINGS.md](../DECISION_MODEL_READINGS.md#causal-reasoning)

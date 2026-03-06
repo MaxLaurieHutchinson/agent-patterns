@@ -211,6 +211,7 @@ python3.11 -m unittest discover -s tests -v
 ## Decision Model Taxonomy
 
 See `DECISION_MODELS.md` for deterministic/probabilistic/heuristic tagging.
+See `DECISION_MODEL_READINGS.md` for centralized further reading links.
 
 ## Notes on Scope
 

@@ -38,4 +38,4 @@ Toy spam classifier.
 - Using a fixed threshold when costs are asymmetric
 
 ## Further Reading
-- [Hastie, Tibshirani, Friedman: The Elements of Statistical Learning](https://hastie.su.domains/ElemStatLearn/)
+- See [DECISION_MODEL_READINGS.md](../DECISION_MODEL_READINGS.md#logistic-regression)

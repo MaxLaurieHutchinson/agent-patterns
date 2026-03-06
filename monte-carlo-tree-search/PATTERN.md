@@ -36,5 +36,4 @@ Take-away game.
 - Ignoring domain heuristics when available
 
 ## Further Reading
-- [Kocsis & Szepesvari, Bandit Based Monte-Carlo Planning](https://is.tuebingen.mpg.de/fileadmin/user_upload/files/publications/tebouc_kocsis_szepesvari_ecml_2006.pdf)
-- [Browne et al., A Survey of Monte Carlo Tree Search Methods](https://projecteuclid.org/ebooks/collections/Proceedings-of-Symposia-in-Applied-Mathematics/A-Survey-of-Monte-Carlo-Tree-Search-Methods/chapter/A-Survey-of-Monte-Carlo-Tree-Search-Methods.pdf)
+- See [DECISION_MODEL_READINGS.md](../DECISION_MODEL_READINGS.md#monte-carlo-tree-search)

@@ -35,5 +35,4 @@ Diagnostic test with sensitivity/specificity.
 - Treating likelihoods as certainties
 
 ## Further Reading
-- [E. T. Jaynes, Probability Theory: The Logic of Science](https://bayes.wustl.edu/etj/prob/book.pdf)
-- [Gelman et al., Bayesian Data Analysis](https://sites.stat.columbia.edu/gelman/book/)
+- See [DECISION_MODEL_READINGS.md](../DECISION_MODEL_READINGS.md#bayesian-reasoning)
